@@ -1,25 +1,25 @@
 import { Action } from '@ngrx/store';
 
 
-export const LOAD_LOGIN = 'load login';
-export const LOAD_LOGIN_SUCESS = 'load login sucess';
-export const LOAD_LOGIN_FAIL = 'load login fail';
+export const LOGIN_SUBMIT = '[LOGIN] login submit';
+export const LOGIN_SUCESS = '[LOGIN] login sucess';
+export const LOGIN_FAIL = '[LOGIN] login fail';
 
-export class LoadLogin implements Action {
-    readonly type = LOAD_LOGIN;
+export class LoginSubmit implements Action {
+    readonly type =  LOGIN_SUBMIT;
     constructor(public payload?: any) { }
  }
- export class LoadLoginSucess implements Action {
-    readonly type = LOAD_LOGIN_SUCESS;
+ export class LoginSucess implements Action {
+    readonly type = LOGIN_SUCESS;
     constructor(public payload?: any) { }
  }
 
- export class LoadLoginFail implements Action {
-    readonly type = LOAD_LOGIN_FAIL;
+ export class LoginFail implements Action {
+    readonly type = LOGIN_FAIL;
     constructor(public payload?: any) { }
  }
 
 // action type
-export type PropertyAction = | LoadLogin
-                             | LoadLoginSucess
-                             | LoadLoginFail;
+export type PropertyAction = | LoginSubmit
+                             | LoginSucess
+                             | LoginFail;
