@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { StoreModule } from '@ngrx/store/src/store_module';
+import { reducers } from '../store/reducers/index';
 
 
 @NgModule({
@@ -10,7 +12,8 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    StoreModule.forRoot({'products': reducers}),
   ],
   providers: [],
   bootstrap: [AppComponent]

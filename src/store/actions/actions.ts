@@ -2,7 +2,7 @@ import { Action } from '@ngrx/store';
 
 
 export const LOAD_LOGIN = 'load login';
-export const LOAD_LOGIN_SUCESS = 'load login sucess';
+export const LOAD_LOGIN_SUCESS = 'load login success';
 export const LOAD_LOGIN_FAIL = 'load login fail';
 
 export class LoadLogin implements Action {
@@ -20,6 +20,6 @@ export class LoadLogin implements Action {
  }
 
 // action type
-export type PropertyAction = | LoadLogin
-                             | LoadLoginSucess
-                             | LoadLoginFail;
+export type PropertyAction = LoadLogin
+                            | LoadLoginSucess
+                            | LoadLoginFail;
