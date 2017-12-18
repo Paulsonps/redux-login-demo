@@ -7,13 +7,13 @@ export const initialState: AppState = {
 
 export function loginReducer(state = initialState, action: userActions.PropertyAction) {
     switch (action.type) {
-        case userActions.LOAD_LOGIN: {
+        case userActions.LOGIN_SUBMIT: {
             return {
                 ...state,
             };
         }
 
-        case userActions.LOAD_LOGIN_SUCESS: {
+        case userActions.LOGIN_SUCESS: {
             const users = action.payload;
             return {
                 ...state,
@@ -21,7 +21,7 @@ export function loginReducer(state = initialState, action: userActions.PropertyA
             };
         }
 
-        case userActions.LOAD_LOGIN_FAIL: {
+        case userActions.LOGIN_FAIL: {
             return {
                 ...state,
             };
