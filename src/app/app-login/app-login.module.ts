@@ -8,7 +8,9 @@ import { AppLoginRoutingModule } from './app-login.routing';
 
 @NgModule({
   imports: [
-    AppLoginRoutingModule
+    AppLoginRoutingModule,
+    FormsModule,
+    CommonModule
   ],
   declarations: [
     AppLoginComponent

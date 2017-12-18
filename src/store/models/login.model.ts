@@ -1,8 +1,8 @@
 export interface User {
-    username: string;
-    password: string;
+    username?: string;
+    password?: string;
 }
 
-export interface AppState {
-    users: User[];
-}
+// export interface AppState {
+//     users: User[];
+// }

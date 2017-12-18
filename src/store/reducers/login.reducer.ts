@@ -1,15 +1,30 @@
-import * as userActions from './../actions/';
-import { User, AppState } from './../models/login.model';
+import * as userActions from './../actions/actions';
+import { User } from './../models/login.model';
+import { Action } from 'rxjs/scheduler/Action';
+
+export interface AppState {
+    users: User[];
+}
 
 export const initialState: AppState = {
     users: []
 };
 
-export function loginReducer(state = initialState, action: userActions.PropertyAction) {
+const newState = (state, newData) => {
+    const updatedState = Object.assign({}, state, newData);
+    return updatedState;
+};
+
+export function loginReducer(state = initialState, action) {
+    // console.log('REDUCER', action.payload);
+    // const data = action.payload;
     switch (action.type) {
         case userActions.LOGIN_SUBMIT: {
+            // console.log('HERE');
+            // return newState(state, action.payload);
             return {
                 ...state,
+                users: action.payload
             };
         }
 
@@ -33,4 +48,4 @@ export function loginReducer(state = initialState, action: userActions.PropertyA
     }
 }
 
-export const getUsers = (state: AppState) => state.users;
+// export const getUsers = (state: AppState) => state.users;

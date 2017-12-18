@@ -4,11 +4,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { appRoutingModule } from './app.routing';
 
+
 import { AppComponent } from './app.component';
-import { StoreModule } from '@ngrx/store/src/store_module';
-import { reducers } from '../store/reducers/index';
+import { StoreModule } from '@ngrx/store';
+import { loginReducer } from '../store/reducers/login.reducer';
 import { AppLayoutComponent } from './app-layout/app-layout.component';
 import { AppLoginComponent } from './app-login/app-login.component';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { FormsModule } from '@angular/forms';
+import { EffectsModule } from '@ngrx/effects';
+
+import { LoginEffects } from '../store/effects/effects';
 
 
 @NgModule({
@@ -19,9 +25,14 @@ import { AppLoginComponent } from './app-login/app-login.component';
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({'products': reducers}),
+    FormsModule,
+    StoreModule.forRoot({'products': loginReducer}),
+    EffectsModule.forRoot([LoginEffects]),
     BrowserAnimationsModule,
-    appRoutingModule
+    appRoutingModule,
+    StoreDevtoolsModule.instrument({
+      maxAge: 5
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
