@@ -1,4 +1,8 @@
 export interface User {
-    usrename?: string;
-    password?: any;
+    username: string;
+    password: string;
+}
+
+export interface AppState {
+    users: User[];
 }
