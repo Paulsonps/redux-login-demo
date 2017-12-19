@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-app-home',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppHomeComponent implements OnInit {
 
-  constructor() { }
+  public userData$: Observable<any>;
+
+  constructor(public store: Store<any>) { }
 
   ngOnInit() {
+    this.userData$ = this.store.select('products');
+    console.log(this.userData$);
   }
 
 }

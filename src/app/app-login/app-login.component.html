@@ -5,6 +5,7 @@
   <!-- <form> -->
     UserName: <input type="text" [(ngModel)] = 'uname'><br><br>
     PassWord: <input type="password" [(ngModel)] = 'pword'><br>
-    <button type="button" (click)="login()">LOGIN</button>
+    <button type="button" (click)="login()" >LOGIN</button>
   <!-- </form> -->
+  <div *ngIf="(userData$ | async)">{{ (userData$ | async) ["loaded"]  }}</div>
 </div>

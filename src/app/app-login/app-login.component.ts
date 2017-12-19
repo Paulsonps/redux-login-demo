@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { LOGIN_SUBMIT } from '../../store/actions/actions';
 import { FormsModule } from '@angular/forms';
+import { Observable } from 'rxjs/Observable';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-app-login',
@@ -11,16 +13,22 @@ import { FormsModule } from '@angular/forms';
 export class AppLoginComponent implements OnInit {
   pword: any;
   uname: any;
+  userData$: Observable<any>;
 
-  constructor(public store: Store<any>) { }
+  constructor(public store: Store<any>, public routes: Router) { }
 
   ngOnInit() {
   }
 
-  login(username: any, password: any) {
+  login() {
     this.store.dispatch({
       type: LOGIN_SUBMIT,
-      payload: {username: this.uname, password: this.pword}
+      payload: {'username': this.uname, 'password': this.pword}
     });
+
+    // get the loading state and redirected to home page
+    this.userData$ = this.store.select('products');
+
+    this.routes.navigateByUrl('home');
   }
 }

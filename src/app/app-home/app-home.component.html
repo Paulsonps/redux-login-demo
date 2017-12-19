@@ -1,3 +1,9 @@
 <p>
   app-home works!
+  {{ (userData$ | async) ["loaded"] }}
 </p>
+<div *ngIf="(userData$ | async)">
+  <div *ngIf = "(userData$ | async) ['loaded'] ">
+    {{ (userData$ | async) ["users"] ["username"]  }}
+  </div>
+</div>

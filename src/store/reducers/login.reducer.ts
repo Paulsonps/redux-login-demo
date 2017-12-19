@@ -4,10 +4,14 @@ import { Action } from 'rxjs/scheduler/Action';
 
 export interface AppState {
     users: User[];
+    loaded: boolean;
+    loading: boolean;
 }
 
 export const initialState: AppState = {
-    users: []
+    users: [],
+    loaded: false,
+    loading: false
 };
 
 const newState = (state, newData) => {
@@ -16,15 +20,13 @@ const newState = (state, newData) => {
 };
 
 export function loginReducer(state = initialState, action) {
-    // console.log('REDUCER', action.payload);
-    // const data = action.payload;
     switch (action.type) {
         case userActions.LOGIN_SUBMIT: {
-            // console.log('HERE');
-            // return newState(state, action.payload);
             return {
                 ...state,
-                users: action.payload
+                users: action.payload,
+                loaded: false,
+                loading: true
             };
         }
 
@@ -32,13 +34,17 @@ export function loginReducer(state = initialState, action) {
             const users = action.payload;
             return {
                 ...state,
-                users
+                // ,
+                loaded: true,
+                loading: false
             };
         }
 
         case userActions.LOGIN_FAIL: {
             return {
                 ...state,
+                loaded: false,
+                loading: false
             };
         }
 
