@@ -4,19 +4,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { appRoutingModule } from './app.routing';
 
-
+import { StoreRouterConnectingModule, RouterStateSerializer } from '@ngrx/router-store';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
-import { loginReducer } from '../store/login/login.reducer';
+import { reducers, CustomSerializer } from '../store/router.reducer';
 import { AppLayoutComponent } from '../container/app-layout/app-layout.component';
 import { AppLoginComponent } from '../container/app-login/app-login.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { FormsModule } from '@angular/forms';
 import { EffectsModule } from '@ngrx/effects';
-// import { AppHomeModule } from '../container/app-home/app-home.module';
 import { AppLoginModule } from '../container/app-login/app-login.module';
-import { LoginEffects } from '../store/login/login.effect';
-import { LoginService } from '../store/login/login.service';
+// import { LoginService } from '../store/login/login.service';
 import { HttpModule } from '@angular/http';
 // import {HTTP_PROVIDERS} from '@angular/http';
 
@@ -25,14 +23,16 @@ import { HttpModule } from '@angular/http';
   declarations: [
     AppComponent,
     AppLayoutComponent,
-    AppLoginComponent
+    // AppLoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    StoreModule.forRoot({'products': loginReducer}),
-    EffectsModule.forRoot([LoginEffects]),
+    AppLoginModule,
+    StoreModule.forRoot(reducers, {}),
+    EffectsModule.forRoot([]),
+    StoreRouterConnectingModule,
     BrowserAnimationsModule,
     appRoutingModule,
     StoreDevtoolsModule.instrument({
@@ -40,7 +40,9 @@ import { HttpModule } from '@angular/http';
     })
   ],
 
-  providers: [LoginService],
+  providers: [
+    // LoginService,
+    {provide: RouterStateSerializer, useClass: CustomSerializer}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

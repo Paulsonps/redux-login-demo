@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import { LoginService } from '../../store/login/login.service';
+import { RootState } from '../../store';
 
 @Component({
   selector: 'app-app-login',
@@ -16,7 +17,7 @@ export class AppLoginComponent implements OnInit {
   uname: any;
   userData$: Observable<any>;
 
-  constructor(public store: Store<any>,
+  constructor(public store: Store<RootState>,
               public routes: Router,
               public service: LoginService) { }
 
