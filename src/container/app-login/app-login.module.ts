@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { AppLoginComponent } from './app-login.component';
 import { AppLoginRoutingModule } from './app-login.routing';
-import { LoginService } from '../../store/services/login/login.service';
+import { LoginService } from '../../store/login/login.service';
 
 @NgModule({
   imports: [

@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { AppHomeComponent } from './app-home.component';
 import { AppHomeRoutingModule } from './app-home.routing';
 import { StoreModule } from '@ngrx/store';
-import { loginReducer } from '../../store/reducers/login/login.reducer';
+import { loginReducer } from '../../store/login/login.reducer';
 
 
 @NgModule({

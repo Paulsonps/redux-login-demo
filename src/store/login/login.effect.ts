@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { of } from 'rxjs/observable/of';
 import { map, catchError} from 'rxjs/operators';
 import { Effect, Actions, toPayload} from '@ngrx/effects';
-import * as loginActions from '../../actions/login/login.action';
+import * as loginActions from '../../store/login/login.action';
 import { Observable } from 'rxjs/Observable';
 import { Action } from '@ngrx/store';
 import { Router } from '@angular/router';
@@ -15,7 +15,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/switchMap';
 
-import { LoginService } from '../../../store/services/login/login.service';
+import { LoginService } from '../../store/login/login.service';
 
 
 @Injectable()
