@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { LOGIN_SUBMIT } from '../../store/actions/actions';
+import { LOGIN_SUBMIT } from '../../store/actions/login/login.action';
 import { FormsModule } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
-import { LoginService } from '../../store/services/login.service';
+import { LoginService } from '../../store/services/login/login.service';
 
 @Component({
   selector: 'app-app-login',
