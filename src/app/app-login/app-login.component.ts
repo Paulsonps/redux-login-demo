@@ -4,6 +4,7 @@ import { LOGIN_SUBMIT } from '../../store/actions/actions';
 import { FormsModule } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
+import { LoginService } from '../../store/services/login.service';
 
 @Component({
   selector: 'app-app-login',
@@ -15,12 +16,15 @@ export class AppLoginComponent implements OnInit {
   uname: any;
   userData$: Observable<any>;
 
-  constructor(public store: Store<any>, public routes: Router) { }
+  constructor(public store: Store<any>,
+              public routes: Router,
+              public service: LoginService) { }
 
   ngOnInit() {
   }
 
   login() {
+
     this.store.dispatch({
       type: LOGIN_SUBMIT,
       payload: {'username': this.uname, 'password': this.pword}
@@ -28,7 +32,5 @@ export class AppLoginComponent implements OnInit {
 
     // get the loading state and redirected to home page
     this.userData$ = this.store.select('products');
-
-    this.routes.navigateByUrl('home');
   }
 }

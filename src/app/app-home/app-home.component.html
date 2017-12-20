@@ -1,9 +1,23 @@
-<p>
-  app-home works!
-  {{ (userData$ | async) ["loaded"] }}
-</p>
-<div *ngIf="(userData$ | async)">
+
+<!-- <div *ngIf="(userData$ | async)">
   <div *ngIf = "(userData$ | async) ['loaded'] ">
     {{ (userData$ | async) ["users"] ["username"]  }}
   </div>
-</div>
+</div> -->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <h3 class="navbar-brand">Sample redux login App</h3>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active">
+        <div *ngIf="(userData$ | async)">
+          <div *ngIf = "(userData$ | async) ['loaded'] ">
+            {{ (userData$ | async) ["users"] ["username"]  }}
+            <div *ngIf="(userData$ | async)">{{ (userData$ | async) ["data"] | json }}</div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

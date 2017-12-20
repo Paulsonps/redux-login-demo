@@ -1,5 +1,5 @@
-import * as userActions from './../actions/actions';
-import { User, Authenticated } from './../models/login.model';
+import * as userActions from './../../actions/actions';
+import { User, Authenticated } from './../../models/login.model';
 import { Action } from 'rxjs/scheduler/Action';
 
 export interface AppState {

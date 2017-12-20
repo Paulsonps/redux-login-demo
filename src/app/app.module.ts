@@ -15,6 +15,9 @@ import { FormsModule } from '@angular/forms';
 import { EffectsModule } from '@ngrx/effects';
 
 import { LoginEffects } from '../store/effects/effects';
+import { LoginService } from '../store/services/login.service';
+import { Http, HttpModule } from '@angular/http';
+// import {HTTP_PROVIDERS} from '@angular/http';
 
 
 @NgModule({
@@ -26,6 +29,7 @@ import { LoginEffects } from '../store/effects/effects';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpModule,
     StoreModule.forRoot({'products': loginReducer}),
     EffectsModule.forRoot([LoginEffects]),
     BrowserAnimationsModule,
@@ -34,7 +38,7 @@ import { LoginEffects } from '../store/effects/effects';
       maxAge: 5
     })
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
