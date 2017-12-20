@@ -5,12 +5,12 @@ import { CommonModule } from '@angular/common';
 import { AppLoginComponent } from './app-login.component';
 import { AppLoginRoutingModule } from './app-login.routing';
 
-
 @NgModule({
   imports: [
     AppLoginRoutingModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    AppLoginRoutingModule
   ],
   declarations: [
     AppLoginComponent

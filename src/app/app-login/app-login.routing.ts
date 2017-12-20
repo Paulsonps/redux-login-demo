@@ -4,7 +4,7 @@ import { ModuleWithProviders } from '@angular/core';
 
 const appLoginRoutes: Routes = [
     {
-        path: 'login',
+        path: '',
         component: AppLoginComponent
     }
 ];

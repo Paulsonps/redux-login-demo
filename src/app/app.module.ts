@@ -13,7 +13,8 @@ import { AppLoginComponent } from './app-login/app-login.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { FormsModule } from '@angular/forms';
 import { EffectsModule } from '@ngrx/effects';
-
+import { AppHomeModule } from '../app/app-home/app-home.module';
+import { AppLoginModule } from '../app/app-login/app-login.module';
 import { LoginEffects } from '../store/effects/effects';
 import { LoginService } from '../store/services/login.service';
 import { Http, HttpModule } from '@angular/http';
@@ -24,7 +25,6 @@ import { Http, HttpModule } from '@angular/http';
   declarations: [
     AppComponent,
     AppLayoutComponent,
-    AppLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +38,7 @@ import { Http, HttpModule } from '@angular/http';
       maxAge: 5
     })
   ],
+
   providers: [LoginService],
   bootstrap: [AppComponent]
 })

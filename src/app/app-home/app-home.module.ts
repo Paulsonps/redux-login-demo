@@ -11,7 +11,7 @@ import { loginReducer } from '../../store/reducers/login.reducer';
 @NgModule({
   imports: [
     AppHomeRoutingModule,
-    CommonModule
+    CommonModule,
     // StoreModule.forEach({'products': loginReducer}),
     // StoreModule.forFeature(loginReducer)
   ],
