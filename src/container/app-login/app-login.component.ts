@@ -14,8 +14,7 @@ import { RootState } from '../../store';
   styleUrls: ['./app-login.component.css']
 })
 export class AppLoginComponent implements OnInit {
-  pword: any;
-  uname: any;
+
   userData$: Observable<any>;
   form: FormGroup;
   constructor(public store: Store<RootState>,
@@ -34,7 +33,7 @@ export class AppLoginComponent implements OnInit {
 
     this.store.dispatch({
       type: LOGIN_SUBMIT,
-      payload: {'username': this.uname, 'password': this.pword}
+      payload: {data}
     });
     this.service.login(data);
 
