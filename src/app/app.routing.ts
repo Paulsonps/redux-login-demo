@@ -5,11 +5,13 @@ import { AppLayoutComponent } from '../container/app-layout/app-layout.component
 import { AppLoginComponent } from '../container/app-login/app-login.component';
 
 import { AppHomeComponent } from '../container/app-home/app-home.component';
+import { AuthGuard } from './auth.gaurd';
 
 const appRoutes: Routes = [
-      { path: 'home', loadChildren: 'container/app-home/app-home.module#AppHomeModule' },
-      // { path: 'home', component: AppHomeComponent},
-      { path: '', component: AppLoginComponent}
+      { path: 'home', loadChildren: 'container/app-home/app-home.module#AppHomeModule', canActivate: [AuthGuard ] },
+      { path: 'login', loadChildren: 'container/app-login/app-login.module#AppLoginModule'},
+      {path: '', pathMatch: 'full', redirectTo: 'login' },
+      { path: '**', redirectTo: 'login'}
   ];
 
 

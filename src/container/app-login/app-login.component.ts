@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import { LoginService } from '../../store/login/login.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RootState } from '../../store';
 
 @Component({
@@ -16,20 +17,26 @@ export class AppLoginComponent implements OnInit {
   pword: any;
   uname: any;
   userData$: Observable<any>;
-
+  form: FormGroup;
   constructor(public store: Store<RootState>,
               public routes: Router,
-              public service: LoginService) { }
+              public service: LoginService,
+              public fb: FormBuilder) { }
 
-  ngOnInit() {
-  }
+              ngOnInit() {
+                this.form = this.fb.group({
+                  username: ['', Validators.required],
+                  password: ['', Validators.required]
+                });
+              }
 
-  login() {
+  login(data: any) {
 
     this.store.dispatch({
       type: LOGIN_SUBMIT,
       payload: {'username': this.uname, 'password': this.pword}
     });
+    this.service.login(data);
 
     // get the loading state and redirected to home page
     this.userData$ = this.store.select('products');

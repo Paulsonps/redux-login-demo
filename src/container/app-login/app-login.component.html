@@ -2,9 +2,9 @@
   This is a primary alert—check it out!
 </div> -->
 <div>
-  <!-- <form> -->
-    UserName: <input type="text" [(ngModel)] = 'uname'><br><br>
-    PassWord: <input type="password" [(ngModel)] = 'pword'><br>
-    <button type="button" (click)="login()" >LOGIN</button>
-  <!-- </form> -->
+  <form [formGroup]="form" (ngSubmit)="login(form.value)">
+    UserName: <input type="text" formControlName="username"><br><br>
+    PassWord: <input type="password" formControlName="password"><br>
+    <button type="submit">LOGIN</button>
+  </form>
 </div>

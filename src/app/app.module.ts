@@ -16,6 +16,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { AppLoginModule } from '../container/app-login/app-login.module';
 // import { LoginService } from '../store/login/login.service';
 import { HttpModule } from '@angular/http';
+import { AuthGuard } from './auth.gaurd';
 // import {HTTP_PROVIDERS} from '@angular/http';
 
 
@@ -42,6 +43,7 @@ import { HttpModule } from '@angular/http';
 
   providers: [
     // LoginService,
+    AuthGuard,
     {provide: RouterStateSerializer, useClass: CustomSerializer}],
   bootstrap: [AppComponent]
 })
